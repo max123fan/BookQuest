@@ -1,38 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindMyRead</title>
-    <link rel="stylesheet" href="styles.css">
+<title>BookQuest</title>
+<link rel="icon" href="favicon1.png" type="image/png">
+<h1>BookQuest</h1>
+<form>
+    <label for="prompt">What would you like to read today?</label>
+    <br>
+    <input type="text" size="100" id="userRequest" name="userRequest" placeholder="Search for a book..." required>
+    <button type="submit">Go!</button>
+</form>
 </head>
-<body>
-    <header>
-        <h1>📚 FindMyRead</h1>
-        <p>Your personalized AI book finder</p>
-    </header>
-
-    <main>
-        <section id="search">
-            <h2>What do you feel like reading today?</h2>
-            <form id="search-form">
-                <input type="text" id="book-query" placeholder="Type a genre, keyword, or mood..." required>
-                <button type="submit">Find My Book</button>
-            </form>
-        </section>
-
-        <section id="recommendations">
-            <h2>Recommendations</h2>
-            <div id="recommendations-list">
-                <!-- Book recommendations will appear here -->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 FindMyRead. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
 </html>
