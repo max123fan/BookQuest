@@ -1,0 +1,84 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dual-colors whenever logo is used */
+.logo {
+    font-size: 2em;
+}
+.logo::before {
+    content: "Book";
+    color: #585858; /* First color */
+}
+.logo::after {
+    content: "Quest";
+    color: #44a1ff; /* Second color */
+}
+
+
+/* Body styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f8f8; /* Soft light background */
+    color: #333333; /* Dark text for readability */
+    padding: 20px;
+}
+
+/* Header style */
+h1 {
+    text-align: left;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #ffffff; /* White background for form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Label style */
+label {
+    font-size: 1.8em;
+    font-weight: 550;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    display: inline-block;
+    color: #585858; /* Soft blue-grey */
+}
+
+/* Input field style */
+input[type="text"] {
+    padding: 12px;
+    font-size: 1.1em;
+    width: 70%; /* Adjust input width */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #d4d4d4; /* Light grey border */
+    border-radius: 30px; /* Very curved edges */
+    background-color:#f8f8f8
+}
+
+/* Button style */
+button {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    background-color: #b0d6ff; /* Soft light blue */
+    color: #607D8B;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #7aa7ff; /* Slightly darker blue */
+}
