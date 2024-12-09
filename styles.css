@@ -19,6 +19,59 @@
 }
 
 
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6fc8ff;
+    gap: 20px;
+    padding: 50px;
+    position: relative;
+}
+.titleContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: -1;  /* Ensures overlay is behind content */
+}
+.titleMessage {
+    font-size: 3em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color:#424242;
+    text-align: left;
+}
+.titleImage {
+    width: 600px;
+    height: auto;
+    object-fit: cover; 
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: hwb(212 27% 37%);   /* Vivid button color */
+    color: white;                 /* White text */
+    font-size: 1.2em;             /* Button font size */
+    padding: 12px 25px;           /* Space inside the button */
+    text-decoration: none;        /* Removes underline from link */
+    border-radius: 5px;           /* Rounded corners for the button */
+    margin-top: 20px;             /* Space between text and button */
+    transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+.cta-button:hover {
+    background-color: #050505;    /* Darker color when hovered */
+}
+
+.cta-button:focus {
+    outline: none;               /* Removes default focus outline */
+    box-shadow: 0 0 10px rgba(45, 143, 255, 0.979); /* Optional: adds a focus glow */
+}
+
 /* Body styles */
 body {
     font-family: 'Inter', sans-serif;
