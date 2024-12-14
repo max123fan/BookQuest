@@ -1,0 +1,43 @@
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0084ff94;
+    gap: 20px;
+    padding: 50px;
+}
+
+.titleMessage {
+    font-size: 3.1em;
+}
+
+.titleSubheading {
+    font-size: 1.3em;
+}
+
+.titleImage {
+    width: 600px;
+    height: auto;
+    object-fit: cover;
+    filter: drop-shadow(4px 4px 30px rgb(255, 255, 255));
+}
+
+.continueButton {
+    display: inline-block;
+    background-color: hwb(212 27% 37%);
+    color: white;
+    font-size: 1.2em;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.continueButton:hover {
+    background-color: #050505;
+}
+
+.continueButton:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(45, 143, 255, 0.979);
+}

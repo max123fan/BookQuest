@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookQuest</title>
     <link rel="icon" href="favicon3.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contentPageStyles.css">
+    <link rel="stylesheet" href="mainStyles.css">
 </head>
 <body>
-    <h1 class="logo"></h1>
-    <form>
-        <label for="userRequest">What would you like to read today?</label>
-        <br>
-        <input type="text" id="userRequest" name="userRequest" placeholder="Search for a book..." required>
-        <br>
-        <button type="submit">Go!</button>
-    </form>
+    <div class="pageContainer">
+        <div class="globalBar">
+            <a href="titlePage.html" class="logo"></a>
+            <div class="globalBarLinks">
+                <a href="aboutPage.html" class="aboutButton">About</a>
+            </div>
+        </div>
+        
+        <div class="chatContainer">
+            <div class="promptContainer">
+                <div for="userInput" class="promptText">What would you like to read today?</div>
+            </div>
+
+            <div class="chatLog" id="chatLog"></div>
+
+            <form class="chatForm" id="chatForm">
+                <!-- Change the input to textarea -->
+                <input id="userInput" name="userInput" placeholder="Search for a book..." class="chatTextBox" required></input>
+                <button type="submit" class="chatGoButton">Go!</button>
+            </form>
+
+            <script src="contentPageScript.js"></script>
+        </div>
+    </div>
 </body>
 </html>
