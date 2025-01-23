@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const chatLog = document.getElementById("chatLog");
     const chatForm = document.getElementById("chatForm");
@@ -6,19 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isFirstMessage = true;
 
-    // Function to auto-resize the textarea
     function autoResize() {
-        // Reset the height to auto to calculate the scrollHeight
         userInput.style.height = 'auto';
         
-        // Set the height to match the scrollHeight but cap it to max-height
         userInput.style.height = Math.min(userInput.scrollHeight, 150) + 'px';
     }
 
-    // Listen for input event to auto-resize
     userInput.addEventListener('input', autoResize);
-
-    // Initial call to set the height correctly
     autoResize();
 
     chatForm.addEventListener("submit", (event) => {
@@ -26,33 +21,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const userMessageText = userInput.value.trim();
         if (userMessageText) {
-            // Hide promptContainer on first message
             if (isFirstMessage) {
                 promptContainer.style.display = "none";
                 chatForm.classList.add("fixed");
-                chatLog.style.height = "60vh"; // Expand chat log height
+                chatLog.style.height = "60vh";
                 chatLog.style.padding = "10px";
                 chatLog.style.borderColor = "#ccc";
                 chatLog.style.overflowY = "auto";
                 isFirstMessage = false;
             }
 
-            // Add user message
+
             const userMessage = document.createElement("div");
             userMessage.classList.add("userMessage");
             userMessage.textContent = userMessageText;
             chatLog.appendChild(userMessage);
 
-            // Add AI response (sample placeholder)
             const aiMessage = document.createElement("div");
             aiMessage.classList.add("aiMessage");
-            aiMessage.textContent = "Lorem ipsum dolor sit amet.";
+            aiMessage.textContent = "Searching for books...";
             chatLog.appendChild(aiMessage);
 
-            // Clear input and scroll to bottom
             userInput.value = "";
-            autoResize(); // Resize the textarea back to the single line after clearing
+            autoResize();
             chatLog.scrollTop = chatLog.scrollHeight;
-        }
-    });
-});
+
+            fetch('http://127.0.0.1:5000/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessageText })
+            })
+            .then(response => response.json()) // Ensure you parse the response to JSON
+            .then(data => {
+                console.log("Response data:", data); // Debugging output
+                const aiMessage = document.createElement("div");
+                aiMessage.classList.add("aiMessage");
+                aiMessage.innerHTML = data.message; // Use innerHTML to render HTML content correctly
+                chatLog.appendChild(aiMessage);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+                    }
+                });
+            });

@@ -4,12 +4,10 @@ from sentence_transformers import SentenceTransformer, util
 import torch
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
-# Initialize the model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Sample book data (you can expand this or connect to a database)
 books = [
     {"title": "Understanding AI", "description": "A comprehensive guide to artificial intelligence and its applications."},
     {"title": "Adventures in Space", "description": "A thrilling journey through the cosmos with astronauts."},
@@ -18,7 +16,6 @@ books = [
     {"title": "The Art of Data Science", "description": "A detailed exploration of data analysis and machine learning techniques."},
 ]
 
-# Pre-compute embeddings for all book descriptions
 book_descriptions = [book["description"] for book in books]
 book_embeddings = model.encode(book_descriptions, convert_to_tensor=True)
 
@@ -29,22 +26,18 @@ def search_books():
         query = data.get('query', '')
         top_k = data.get('top_k', 3)
 
-        # Encode the query
         query_embedding = model.encode(query, convert_to_tensor=True)
 
-        # Compute cosine similarity scores
         similarity_scores = util.pytorch_cos_sim(query_embedding, book_embeddings)[0]
 
-        # Get top-k scores and corresponding book indices
         top_results = torch.topk(similarity_scores, k=min(top_k, len(books)))
 
-        # Format results
         results = []
         for score, idx in zip(top_results.values, top_results.indices):
             results.append({
                 "title": books[idx]["title"],
                 "description": books[idx]["description"],
-                "score": float(score)  # Convert tensor to float for JSON serialization
+                "score": float(score)
             })
 
         return jsonify({"results": results})

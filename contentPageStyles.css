@@ -1,19 +1,18 @@
 .chatContainer {
     display: flex;
-    flex-direction: column; /* Stack chat log and input form vertically */
-    justify-content: flex-start; /* Align everything towards the bottom */
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
-    box-sizing: border-box; /* Include padding in the height */
+    box-sizing: border-box;
     position: relative;
 }
 
 .promptContainer {
-    margin-top: 50px;
+    margin-top: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px; /* Space between prompt and input form */
 }
 .promptText {
     font-size: 3em;
@@ -39,52 +38,52 @@
 }
 
 #chatLog::-webkit-scrollbar {
-    width: 20px; /* Width of vertical scrollbar */
+    width: 20px;
 }
 #chatLog::-webkit-scrollbar-track {
-    background: #f0f0f0; /* Light background for track */
+    background: #f0f0f0;
     border-radius: 10px;
 }
 #chatLog::-webkit-scrollbar-thumb {
-    background: #d9d9d9; /* Light blue thumb */
+    background: #d9d9d9;
     border-radius: 10px;
-    border: 2px solid #f0f0f0; /* Padding for thumb */
+    border: 2px solid #f0f0f0;
 }
 #chatLog::-webkit-scrollbar-thumb:hover {
-    background: #cecdcd; /* Light blue thumb *//
+    background: #cecdcd;
 }
 
 .userMessage {
-    text-align: left; /* Align text inside the box */
+    text-align: left;
     align-self: flex-end;
     align-items: center;
     font-size: 1.2em;
     font-weight: 550;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #d0f0fd; /* Light blue background */
-    border-radius: 12px; /* Rounded corners */
-    padding: 10px 15px; /* Padding inside the box */
-    margin-bottom: 10px; /* Space between messages */
-    display: inline-block; /* Box wraps around content */
-    max-width: 70%; /* Prevents the box from stretching full width */
-    word-wrap: break-word; /* Ensure long words wrap */
-    text-align: right; /* Align text to the right */
+    background-color: #d0f0fd;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: inline-block;
+    max-width: 70%;
+    word-wrap: break-word;
+    text-align: right;
 }
 
 .aiMessage {
-    text-align: left; /* Align text inside the box */
+    text-align: left;
     align-self: flex-start;
     font-size: 1.2em;
     font-weight: 550;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f1f1f1; /* Light gray background */
-    border-radius: 12px; /* Rounded corners */
-    padding: 10px 15px; /* Padding inside the box */
-    margin-bottom: 10px; /* Space between messages */
-    display: inline-block; /* Box wraps around content */
-    max-width: 70%; /* Prevents the box from stretching full width */
-    word-wrap: break-word; /* Ensure long words wrap */
-    text-align: left; /* Align text to the left */
+    background-color: #f1f1f1;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: inline-block;
+    max-width: 70%;
+    word-wrap: break-word;
+    text-align: left;
 }
 
 
@@ -113,7 +112,7 @@
     border: 2px solid #bfbfbf;
     border-radius: 30px;
     background-color: #f8f8f8;
-    overflow-y: hidden; /* Prevent vertical scrollbar initially */
+    overflow-y: hidden;
 }
 
 .chatGoButton {
