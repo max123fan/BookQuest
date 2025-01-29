@@ -1,4 +1,9 @@
+/* 
+    aboutStyles.css for styling the About page of BookQuest website.
+*/
+
 .aboutContainer {
+    /* Flexbox layout for centering and spacing content */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,23 +12,25 @@
     padding: 50px;
 }
 
-
-
 .titleMessage {
+    /* Sets large font size for the main title */
     font-size: 3.1em;
 }
 
 .titleSubheading {
+    /* Defines font size for the subtitle */
     font-size: 1.3em;
 }
 
 .titleImage {
+    /* Ensures image covers the area without distortion */
     width: 600px;
     height: auto;
     object-fit: cover;
 }
 
 .continueButton {
+    /* Styles the button with background color and padding */
     display: inline-block;
     background-color: hwb(212 27% 37%);
     color: white;
@@ -35,10 +42,12 @@
 }
 
 .continueButton:hover {
+    /* Changes background color when button is hovered */
     background-color: #050505;
 }
 
 .continueButton:focus {
+    /* Adds a blue glow effect when button is focused */
     outline: none;
     box-shadow: 0 0 10px rgba(45, 143, 255, 0.979);
 }
