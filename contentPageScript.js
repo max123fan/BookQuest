@@ -1,6 +1,8 @@
 /*  
-    ContentPageScript.js handles the interactive chat functionality for BookQuest.  
-    It manages user input, adjusts UI elements dynamically, and communicates with the backend to fetch book recommendations.  
+    last edited 1/29/2025 
+    Peter and Max
+    ContentPageScript.js handles the interactive chat functionality of BookQuest.  
+    It manages user input, adjusts UI elements dynamically based on size, and communicates with the backend to fetch book recommendations.  
 */
 
 document.addEventListener("DOMContentLoaded", () => {
