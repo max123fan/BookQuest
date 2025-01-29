@@ -1,10 +1,19 @@
+/* 
+   Peter and Max  
+   Last updated 1/29/2025  
+   This CSS file styles the BookQuest website on the global navigation bar, 
+   page layout, typography, and interactive elements like buttons and links.  
+*/
+
+/* Reset default margin and padding for all elements */
 * {
     margin: 0;
     padding: 0;
 }
 
+/* General body styling */
 body {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     background-color: #f8f8f8;
     color: #333333;
@@ -12,13 +21,15 @@ body {
     overflow-x: hidden;
 }
 
+/* Main page container to ensure full height */
 .pageContainer {
     display: flex;
     flex-direction: column;
     background-color: #f8f8f8;
-    min-height: 100vh; 
+    min-height: 100vh; /* Ensures it covers the entire viewport height */
 }
 
+/* Global navigation bar */
 .globalBar {
     display: flex;
     justify-content: space-between;
@@ -32,16 +43,18 @@ body {
     top: 0;
     left: 0;        
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for depth */
 }
 
+/* Container for navigation links */
 .globalBarLinks {
     display: flex;  
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* Aligns links to the right */
     justify-content: flex-start;
     width: 100%;
 }
 
+/* Styling for navigation links */
 .globalBarLinks a {
     margin-right: 30px;
     text-decoration: none;
@@ -49,37 +62,47 @@ body {
     font-size: 1.5em;
 }
 
+/* About button styling */
 .aboutButton {
     font-size: 1.5em;
     color: rgb(81, 81, 81);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
 }
+
+/* About button hover effect */
 .aboutButton:hover {
     color: #2a8aff; 
 }
 
+/* Logo styling */
 .logo {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
     display: inline-block;
     text-decoration: none;
     font-size: 2em;
     position: relative;
     color: inherit;              
 }
+
+/* BookQuest logo text styling */
 .logo::before {
     content: "Book";
     color: #585858;
     transition: color 0.3s ease;
 }
+
 .logo::after {
     content: "Quest";
     color: #257ed7;
     transition: color 0.3s ease;
 }
+
+/* Logo hover effect */
 .logo:hover::before {
     color: #257ed7;
 }
+
 .logo:hover::after {
     color: #585858;
 }
