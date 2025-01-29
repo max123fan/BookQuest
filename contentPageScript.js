@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const chatLog = document.getElementById("chatLog");
     const chatForm = document.getElementById("chatForm");
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function autoResize() {
         userInput.style.height = 'auto';
-        
         userInput.style.height = Math.min(userInput.scrollHeight, 150) + 'px';
     }
 
@@ -31,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 isFirstMessage = false;
             }
 
-
             const userMessage = document.createElement("div");
             userMessage.classList.add("userMessage");
             userMessage.textContent = userMessageText;
@@ -51,17 +48,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessageText })
             })
-            .then(response => response.json()) // Ensure you parse the response to JSON
+            .then(response => response.json())
             .then(data => {
-                console.log("Response data:", data); // Debugging output
+                console.log("Response data:", data);
                 const aiMessage = document.createElement("div");
                 aiMessage.classList.add("aiMessage");
-                aiMessage.innerHTML = data.message; // Use innerHTML to render HTML content correctly
+                aiMessage.innerHTML = data.message; // Use innerHTML to render HTML content
                 chatLog.appendChild(aiMessage);
+                chatLog.scrollTop = chatLog.scrollHeight; // Scroll to the bottom
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-                    }
-                });
-            });
+        }
+    });
+});

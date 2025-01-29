@@ -1,26 +1,20 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
-from sentence_transformers import SentenceTransformer, util
+from flask_cors import CORS
 import requests
-import sys
-import time
 import urllib.parse
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
+CORS(app)
 
 def fetch_open_library_books(message):
     print(f"Processing message: {message}")
     stop_words = {'a', 'an', 'the', 'i', 'want', 'book', 'that', 'has', 'with', 'about'}
     search_terms = ' '.join([word for word in message.lower().split() if word not in stop_words])
-    
     print(f"Searching for books with terms: {search_terms}")
     
     try:
         encoded_message = urllib.parse.quote(search_terms)
-        url = f"https://openlibrary.org/search.json?q={encoded_message}&limit=20&language=eng"
-        
+        url = f"https://openlibrary.org/search.json?q={encoded_message}&limit=5&language=eng"
         response = requests.get(url)
         books = []
         
@@ -40,17 +34,17 @@ def fetch_open_library_books(message):
                         description += f"Written by {', '.join(doc['author_name'])}. "
                     if doc.get('subject'):
                         description += f"Subjects: {', '.join(doc['subject'][:5])}."
-                
+
                 books.append({
                     'title': doc.get('title'),
                     'author': ', '.join(doc.get('author_name', ['Unknown'])),
-                    'description': description,
-                    'previewLink': f"https://openlibrary.org{work_key}",
+                    'previewLink': f"<a href='https://kcls.bibliocommons.com/v2/search?query={urllib.parse.quote(doc.get('title', ''))}&searchType=smart' target='_blank'>Search in KCLS</a>",
                     'publishedDate': str(doc.get('first_publish_year', 'Unknown')),
                     'pageCount': doc.get('number_of_pages_median', 'Unknown'),
                     'subjects': doc.get('subject', [])[:5],
                     'averageRating': doc.get('ratings_average', 'Not rated'),
-                    'cover_id': doc.get('cover_i')
+                    'cover_id': doc.get('cover_i'),
+                    'description': description  # Ensure description is included
                 })
             
             print(f"Processing complete. Found {len(books)} valid books")
@@ -65,8 +59,8 @@ def fetch_open_library_books(message):
 
 def fetch_book_description(work_key):
     try:
-        url = f"https://openlibrary.org{work_key}.json"
-        response = requests.get(url)
+        open_library_url = f"https://openlibrary.org{work_key}.json"
+        response = requests.get(open_library_url)
         if response.status_code == 200:
             data = response.json()
             return data.get('description', {}).get('value', '') if isinstance(data.get('description'), dict) else data.get('description', '')
@@ -75,36 +69,50 @@ def fetch_book_description(work_key):
         return ''
 
 def format_books_info(books):
-    # Create a formatted string with line breaks for each book
     book_info = ""
     for book in books:
-        book_info += f"Title: {book['title']}<br>"
-        book_info += f"Author: {book['author']}<br>"
-        book_info += f"Description: {book['description']}<br>"
-        book_info += f"Link: {book['previewLink']}<br>"
-        book_info += f"Page Count: {book['pageCount']}<br>"
-        book_info += f"Average Rating: {book['averageRating']}<br>"
-        book_info += f"<hr>"
+        # Add cover image if available
+        cover_img = ""
+        if book['cover_id']:
+            cover_img = f"<img src='https://covers.openlibrary.org/b/id/{book['cover_id']}-M.jpg' class='book-cover'>"
+        
+        # Add description hover element
+        description_popup = f"""
+        <div class='description-container'>
+            <span class='description-trigger'>📖 Description</span>
+            <div class='description-popup'>
+                {book['description']}
+            </div>
+        </div>
+        """
+        
+        book_info += f"""
+        <div class='book-container'>
+            <div class='cover-container'>{cover_img}</div>
+            <div class='book-details'>
+                <div class='book-title'>{book['title']}</div>
+                <div class='book-author'>By {book['author']}</div>
+                <div class='book-published'>Published: {book['publishedDate']}</div>
+                {description_popup}
+                <div class='library-link'>{book['previewLink']}</div>
+            </div>
+        </div>
+        <hr class='book-divider'>
+        """
     return book_info
-
-
 @app.route('/chat', methods=['POST'])
 def chat():
-    data = request.get_json()  # Get the data from the frontend
-    message = data.get('message', '')  # Extract the message from the received JSON
+    data = request.get_json()
+    message = data.get('message', '')
     print(f"Received message: {message}")
-
-    # Process the query with Open Library API or your custom logic
     books = fetch_open_library_books(message)
-
-    if books:
-        # Format the response properly for readability
-        formatted_books_info = format_books_info(books)
-        response_message = f"Here are the results:\n{formatted_books_info}"
-    else:
-        response_message = "Sorry, no books found matching your query."
-
+    
+    response_message = f"Here are the results:<br>{format_books_info(books)}" if books else "Sorry, no books were found matching your query."
     return jsonify({"message": response_message})
+
+def print_doc(doc):
+    for element in doc:
+        print(doc)
 
 if __name__ == "__main__":
     app.run(debug=True)
