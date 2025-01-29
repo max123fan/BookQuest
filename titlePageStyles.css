@@ -1,4 +1,12 @@
+/* 
+    Peter and Max 
+    Last Updated on 1/29/2025
+    This stylesheet defines the layout and styles for the title page of the BookQuest platform, 
+    including the main container, text elements, image, and button styling.
+*/
+
 .titleContainer {
+    /* Flex container for centering content and creating spacing */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,14 +16,17 @@
 }
 
 .titleMessage {
+    /* Large font size for the main title message */
     font-size: 3.1em;
 }
 
 .titleSubheading {
+    /* Smaller font size for the subtitle */
     font-size: 1.3em;
 }
 
 .titleImage {
+    /* Controls the size and visual effect of the title image */
     width: 600px;
     height: auto;
     object-fit: cover;
@@ -23,6 +34,7 @@
 }
 
 .continueButton {
+    /* Styles for the button, including background color and padding */
     display: inline-block;
     background-color: hwb(212 27% 37%);
     color: white;
@@ -34,10 +46,12 @@
 }
 
 .continueButton:hover {
+    /* Hover effect to darken the button's background */
     background-color: #050505;
 }
 
 .continueButton:focus {
+    /* Focus effect with a glowing blue outline */
     outline: none;
     box-shadow: 0 0 10px rgba(45, 143, 255, 0.979);
 }
