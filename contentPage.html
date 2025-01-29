@@ -1,35 +1,59 @@
+<!-- 
+
+    Peter and Max 
+    Last edited 1/29/2025
+    This webpage provides an interactive interface for users to search for books.
+    Users can enter book-related queries in the input box, and results will be displayed dynamically.
+
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookQuest</title>
+    
+    <!-- Favicon for branding -->
     <link rel="icon" href="favicon3.png" type="image/png">
+    
+    <!-- Linking external stylesheets -->
     <link rel="stylesheet" href="contentPageStyles.css">
     <link rel="stylesheet" href="mainStyles.css">
 </head>
 <body>
     <div class="pageContainer">
+        
+        <!-- Global navigation bar -->
         <div class="globalBar">
-            <a href="titlePage.html" class="logo"></a>
+            <a href="titlePage.html" class="logo"></a> <!-- Logo linking back to the home/title page -->
             <div class="globalBarLinks">
-                <a href="aboutPage.html" class="aboutButton">About</a>
+                <a href="aboutPage.html" class="aboutButton">About</a> <!-- About page link -->
             </div>
         </div>
         
+        <!-- Chat container where user interactions take place -->
         <div class="chatContainer">
+            <!-- Prompt message for user input -->
             <div class="promptContainer">
                 <div for="userInput" class="promptText">What would you like to read today?</div>
             </div>
 
+            <!-- Chat log where book search results or chatbot responses will be displayed -->
             <div class="chatLog" id="chatLog"></div>
 
+            <!-- User input form for book search -->
             <form class="chatForm" id="chatForm">
-                <!-- Change the input to textarea -->
+                <!-- Input field for user to type their book query -->
                 <input id="userInput" name="userInput" placeholder="Search for a book..." class="chatTextBox" required></input>
+                
+                <!-- Submit button to initiate book search -->
                 <button type="submit" class="chatGoButton">Go!</button>
             </form>
 
+            <!-- JavaScript file handling user input and search functionality -->
             <script src="contentPageScript.js"></script>
         </div>
     </div>
