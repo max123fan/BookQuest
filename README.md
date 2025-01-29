@@ -11,7 +11,7 @@
 - **Chatbot Interface w/ all-MiniLM-L6-v2**: The chatbot accepts queries from users and provides an interactive interface for book recommendations.
 - **Semantic Search**: BookQuest uses advanced semantic search techniques to understand the meaning behind a user's query, providing a more accurate and relevant
 - response in search results compared to traditional keyword search techniques .
-  **Text Embeddings**: The system transforms both user queries and book descriptions into numerical vectors (embeddings) using techniques like **TF-IDF** or **BERT** to capture the semantic meaning of the text.
+  **Text Embeddings**: The system transforms both user queries and book descriptions into numerical vectors (embeddings) to capture the semantic meaning of the text.
 - **Cosine Similarity**: The chatbot compares the user's query with book descriptions using the cosine similarity metric, which measures how similar two text vectors are in terms of their direction. This allows the chatbot to return the most semantically relevant books, even if they don't contain exact keyword matches.
 - **Open Library Integration**: BookQuest makes API calls to Open Library to retrieve a list of books based on the user's query.
 - **KCLS Integration**: The chatbot generates KCLS links for each book and provides users with the title, picture, description and other relevant info with
