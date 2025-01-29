@@ -1,3 +1,11 @@
+"""
+Peter and Max  
+Last updated 1/29/2025  
+This script implements a semantic search system for books using a sample library of five book.  
+It encodes book descriptions into embeddings and compares them to a user query using cosine similarity  
+to find the most relevant books.  
+"""
+
 from sentence_transformers import SentenceTransformer, util
 import torch
 
