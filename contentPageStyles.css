@@ -1,3 +1,8 @@
+/* last edited 1/29/2025 
+/* Peter and Max
+/* This stylesheet provides styling for a chatbot interface, including chat messages, input fields, containers that separate outputs, and book display elements. */
+
+/* Main wrapper for the chat interface */
 .chatContainer {
     display: flex;
     flex-direction: column;
@@ -8,12 +13,15 @@
     position: relative;
 }
 
+/* Centers and styles the initial chatbot prompt */
 .promptContainer {
     margin-top: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* Styles the chatbot's initial prompt message */
 .promptText {
     font-size: 3em;
     font-weight: 550;
@@ -23,6 +31,7 @@
     color: #585858;
 }
 
+/* Container for the chat messages */
 #chatLog {
     display: flex;
     flex-direction: column;
@@ -30,33 +39,37 @@
     width: 80%;
     height: auto;
     margin: 20px 0;
-    flex-grow: 1; /* Ensure the chat log takes up available space */
-    overflow-y: auto;
+    flex-grow: 1; /* Ensures it expands as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
     border: 1px solid transparent;
     border-radius: 10px;
-    transition: height 1s ease, padding 0.5s ease, border-color 0.5s ease; /* Smooth animation */
+    transition: height 1s ease, padding 0.5s ease, border-color 0.5s ease;
 }
 
+/* Custom Scrollbar Styling for Chat Log */
 #chatLog::-webkit-scrollbar {
     width: 20px;
 }
+
 #chatLog::-webkit-scrollbar-track {
     background: #f0f0f0;
     border-radius: 10px;
 }
+
 #chatLog::-webkit-scrollbar-thumb {
     background: #d9d9d9;
     border-radius: 10px;
     border: 2px solid #f0f0f0;
 }
+
 #chatLog::-webkit-scrollbar-thumb:hover {
     background: #cecdcd;
 }
 
+/* User Message Styling */
 .userMessage {
     text-align: left;
     align-self: flex-end;
-    align-items: center;
     font-size: 1.2em;
     font-weight: 550;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -64,12 +77,12 @@
     border-radius: 12px;
     padding: 10px 15px;
     margin-bottom: 10px;
-    display: inline-block;
     max-width: 70%;
     word-wrap: break-word;
     text-align: right;
 }
 
+/* AI Message Styling */
 .aiMessage {
     text-align: left;
     align-self: flex-start;
@@ -80,13 +93,12 @@
     border-radius: 12px;
     padding: 10px 15px;
     margin-bottom: 10px;
-    display: inline-block;
     max-width: 70%;
     word-wrap: break-word;
     text-align: left;
 }
 
-
+/* Input and Send Button Styling */
 .chatForm {
     display: flex;
     justify-content: space-between;
@@ -99,9 +111,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: auto;
     transition: all 0.3s ease;
-
 }
 
+/* Chat Text Input Box */
 .chatTextBox {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 8px 12px;
@@ -115,6 +127,7 @@
     overflow-y: hidden;
 }
 
+/* Send Button Styling */
 .chatGoButton {
     padding: 0px 20px;
     height: 60px;
@@ -126,9 +139,13 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+/* Send Button Hover Effect */
 .chatGoButton:hover {
     background-color: #7aa7ff;
 }
+
+/* Book Container that styles the overall book section */
 .book-container {
     display: flex;
     gap: 20px;
@@ -138,11 +155,13 @@
     border-radius: 8px;
 }
 
+/* Book Cover Container */
 .cover-container {
     flex-shrink: 0;
     width: 120px;
 }
 
+/* Book Cover Image */
 .book-cover {
     width: 100%;
     height: auto;
@@ -150,10 +169,12 @@
     border-radius: 4px;
 }
 
+/* Book Details Section */
 .book-details {
     flex-grow: 1;
 }
 
+/* Book Title */
 .book-title {
     font-weight: bold;
     font-size: 1.2em;
@@ -161,34 +182,40 @@
     color: #2c3e50;
 }
 
+/* Book Author */
 .book-author {
     font-size: 0.95em;
     color: #7f8c8d;
     margin-bottom: 5px;
 }
 
+/* Book Published Year */
 .book-published {
     font-size: 0.9em;
     color: #666;
     margin-bottom: 10px;
 }
 
+/* Book Subjects */
 .book-subjects {
     font-size: 0.9em;
     color: #e74c3c;
     margin-bottom: 10px;
 }
 
+/* Library Link */
 .library-link a {
     color: #3498db;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* Library Link Hover Effect */
 .library-link a:hover {
     text-decoration: underline;
 }
 
+/* Separates books visually */
 .book-divider {
     border: 0;
     height: 1px;
@@ -196,22 +223,26 @@
     margin: 20px 0;
 }
 
+/* contain that wraps the trigger and popup */
 .description-container {
     position: relative;
     display: inline-block;
     margin-bottom: 10px;
 }
 
+/*  Includes clickable text to show more details */
 .description-trigger {
     color: #3498db;
     cursor: pointer;
     text-decoration: underline;
 }
 
+/* Hover Effect for Description Trigger */
 .description-trigger:hover {
     color: #2980b9;
 }
 
+/* Description that appears on hover */
 .description-popup {
     font-size: 0.7em;
     display: none;
@@ -227,6 +258,7 @@
     left: 0;
 }
 
+/* Show description popup on hover */
 .description-container:hover .description-popup {
     display: block;
 }
