@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Book List</title>
+    <link rel="stylesheet" href="bookTemplateStyles.css">
+</head>
+<body>
+    <div class='book-container'>
+        <div class='cover-container'>{cover_img}</div>
+        <div class='book-details'>
+            <div class="title-row">
+                <div class="book-title">{title}</div>
+                <div class="media-type">{media_type}</div>
+            </div>
+            <div class='book-author'>By {author}</div>
+            <div class='book-published'>Published: {year}</div>
+            <div class='book-rating'>{rating}</div>
+            <div class='description-container'>
+                <span class='description-trigger'>Description 📖</span>
+                <div class='description-popup'>{description}</div>
+            </div>
+            <div class='availability {availability}'>{availability_text}</div>
+            <div class='library-link'>
+                <a href="{link}" target="_blank">View in KCLS 🔗</a>
+            </div>
+        </div>
+    </div>
+    <hr class='book-divider'>
+</body>
+</html>
+

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             /* Display AI's initial response before fetching results */
             const aiMessage = document.createElement("div");
             aiMessage.classList.add("aiMessage");
-            aiMessage.textContent = "Searching for books...";
+            aiMessage.textContent = "Hold on tight! Searching for books...";
             chatLog.appendChild(aiMessage);
 
             userInput.value = "";
