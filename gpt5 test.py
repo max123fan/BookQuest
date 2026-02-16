@@ -1,3 +1,5 @@
+#refined prompt and formatting with multi-language support
+
 import openai
 import requests
 import json
