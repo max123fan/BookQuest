@@ -1,3 +1,4 @@
+#old version
 class ApiSettings:
     def __init__(self):
         self.initial_fetch_limit = 30  # Get more candidates initially
