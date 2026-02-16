@@ -1,3 +1,5 @@
+#supports mutimedia/multi-language
+
 import openai
 import requests
 import json
